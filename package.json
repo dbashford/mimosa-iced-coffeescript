@@ -20,7 +20,8 @@
     "iced",
     "coffeescript",
     "source",
-    "maps"
+    "maps",
+    "compiler"
   ],
   "dependencies": {
     "logmimosa": "0.6.0",
