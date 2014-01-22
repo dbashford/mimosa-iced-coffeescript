@@ -8,6 +8,7 @@ exports.defaults = function() {
       extensions: ["iced"],
       sourceMapDynamic: true,
       sourceMapExclude: [/\/specs?\//, /_spec.js$/],
+      sourceMapConditional: false,
       options: {
         sourceMap: true,
         bare: true,
@@ -21,9 +22,10 @@ exports.placeholder = function() {
   return "\t\n\n"+
          "  # iced:                      # config settings for the iced coffeescript compiler module\n" +
          "    # lib: undefined           # use this property to provide a specific version of Iced CoffeeScript\n" +
-         "    # extensions: [\"iced\"]     # default extensions for Iced CoffeeScript files\n" +
+         "    # extensions: [\"iced\"]   # default extensions for Iced CoffeeScript files\n" +
          "    # sourceMapDynamic: true   # whether or not to inline the source maps in the compiled JavaScript\n" +
          "    # sourceMapExclude: [/\\/specs?\\//, /_spec.js$/] # files to exclude from source map generation\n" +
+         "    # sourceMapConditional: false # whether or not to use conditional source maps\n" +
          "    # options:                 # options for the Iced CoffeeScript compiler\n" +
          "      # sourceMap:true         # whether or not to create source maps\n" +
          "      # bare:true              # whether or not to use the default safety wrapper\n" +
@@ -48,6 +50,8 @@ exports.validate = function( config, validators ) {
     if ( config.isBuild ) {
       config.iced.sourceMap = false;
     } else {
+      validators.ifExistsIsBoolean( errors, "iced.sourceMapConditional", config.iced.sourceMapConditional )
+
       if ( validators.ifExistsIsBoolean( errors, "iced.sourceMapDynamic", config.iced.sourceMapDynamic ) ) {
         if (config.isWatch && config.isMinify && config.iced.sourceMapDynamic ) {
           config.iced.sourceMapDynamic = false;

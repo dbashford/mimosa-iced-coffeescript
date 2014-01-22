@@ -29,6 +29,7 @@ iced:
   extensions: ["iced"]
   sourceMapDynamic: true
   sourceMapExclude: [/\/specs?\//, /_spec.js$/]
+  sourceMapConditional: false
   options:
     sourceMap:true
     bare:true
@@ -39,6 +40,7 @@ iced:
 * `extensions`: an array of strings, the extensions of your Iced CoffeeScript files.
 * `sourceMapDynamic`: a boolean, whether or not to use [Dynamic source maps](http://fitzgeraldnick.com/weblog/46/). Dynamic source maps require no extra network hops to retrieve the original source or the map files.  They are also a necessity for tools like browserify.
 * `sourceMapExclude`: an array of strings and regexes. A list of files or patterns matching files to exclude from source map generation. Strings are paths and can be either absolute or relative to `config.watch.javascriptDir`.
+* `sourceMapConditional`: a boolean, whether or not to use conditional source maps. See [this thread](https://groups.google.com/d/topic/mozilla.dev.js-sourcemap/4uo7Z5nTfUY/discussion) for details.
 * `options`: an object, the Iced CoffeeScript compiler configuration. This object is passed straight to the Iced CoffeeScript compiler. New properties can be added here to tweak Iced CoffeeScript compilation.
 * `options.sourceMap`: an Iced CoffeeScript compiler option to turn on/off source maps.
 * `options.bare`: an Iced CoffeeScript compiler option to turn on/off the safety wrapper.
