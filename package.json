@@ -1,6 +1,6 @@
 {
   "name": "mimosa-iced-coffeescript",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "homepage": "https://github.com/dbashford/mimosa-iced-coffeescript",
   "author": "David Bashford",
   "description": "An Iced CoffeeScript compiler for Mimosa 2.0+",
@@ -25,7 +25,7 @@
   ],
   "dependencies": {
     "logmimosa": "0.6.0",
-    "iced-coffee-script": "1.6.3-j",
+    "iced-coffee-script": "1.7.0-a",
     "lodash":"2.4.1"
   },
   "license": "MIT",

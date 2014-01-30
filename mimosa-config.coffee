@@ -1,5 +1,6 @@
 exports.config =
-  modules: ["jshint"]
+  minMimosaVersion: "2.0.4"
+  modules: ["jshint", "copy"]
   watch:
     sourceDir: "src"
     compiledDir: "lib"
