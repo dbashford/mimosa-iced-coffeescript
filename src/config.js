@@ -1,7 +1,5 @@
 "use strict";
 
-var logger = require( 'logmimosa' );
-
 exports.defaults = function() {
   return {
     iced: {
@@ -50,12 +48,12 @@ exports.validate = function( config, validators ) {
     if ( config.isBuild ) {
       config.iced.sourceMap = false;
     } else {
-      validators.ifExistsIsBoolean( errors, "iced.sourceMapConditional", config.iced.sourceMapConditional )
+      validators.ifExistsIsBoolean( errors, "iced.sourceMapConditional", config.iced.sourceMapConditional );
 
       if ( validators.ifExistsIsBoolean( errors, "iced.sourceMapDynamic", config.iced.sourceMapDynamic ) ) {
         if (config.isWatch && config.isMinify && config.iced.sourceMapDynamic ) {
           config.iced.sourceMapDynamic = false;
-          logger.debug( "mimosa watch called with minify, setting iced.sourceMapDynamic to false to preserve source maps." );
+          config.log.debug( "mimosa watch called with minify, setting iced.sourceMapDynamic to false to preserve source maps." );
         }
       }
 
