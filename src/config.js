@@ -17,17 +17,17 @@ exports.defaults = function() {
 };
 
 exports.placeholder = function() {
-  return "\t\n\n"+
-         "  # iced:                      # config settings for the iced coffeescript compiler module\n" +
-         "    # lib: undefined           # use this property to provide a specific version of Iced CoffeeScript\n" +
-         "    # extensions: [\"iced\"]   # default extensions for Iced CoffeeScript files\n" +
-         "    # sourceMapDynamic: true   # whether or not to inline the source maps in the compiled JavaScript\n" +
-         "    # sourceMapExclude: [/\\/specs?\\//, /_spec.js$/] # files to exclude from source map generation\n" +
-         "    # sourceMapConditional: false # whether or not to use conditional source maps\n" +
-         "    # options:                 # options for the Iced CoffeeScript compiler\n" +
-         "      # sourceMap:true         # whether or not to create source maps\n" +
-         "      # bare:true              # whether or not to use the default safety wrapper\n" +
-         "      # runtime:\"none\"         # No runtime boilerplate is included";
+  return "\t\n\n" +
+         "  iced:                      # config settings for the iced coffeescript compiler module\n" +
+         "    lib: undefined           # use this property to provide a specific version of Iced CoffeeScript\n" +
+         "    extensions: [\"iced\"]   # default extensions for Iced CoffeeScript files\n" +
+         "    sourceMapDynamic: true   # whether or not to inline the source maps in the compiled JavaScript\n" +
+         "    sourceMapExclude: [/\\/specs?\\//, /_spec.js$/] # files to exclude from source map generation\n" +
+         "    sourceMapConditional: false # whether or not to use conditional source maps\n" +
+         "    options:                 # options for the Iced CoffeeScript compiler\n" +
+         "      sourceMap:true         # whether or not to create source maps\n" +
+         "      bare:true              # whether or not to use the default safety wrapper\n" +
+         "      runtime:\"none\"         # No runtime boilerplate is included";
 };
 
 exports.validate = function( config, validators ) {
@@ -36,7 +36,7 @@ exports.validate = function( config, validators ) {
   if ( validators.ifExistsIsObject( errors, "iced coffeescript config", config.iced ) ) {
 
     if ( !config.iced.lib ) {
-      config.iced.lib = require( 'iced-coffee-script' );
+      config.iced.lib = require( "iced-coffee-script" );
     }
 
     if ( validators.isArrayOfStringsMustExist( errors, "iced.extensions", config.iced.extensions ) ) {
@@ -61,7 +61,7 @@ exports.validate = function( config, validators ) {
         errors,
         "iced.sourceMapExclude",
         config.iced,
-        'sourceMapExclude',
+        "sourceMapExclude",
         config.watch.javascriptDir );
     }
   }

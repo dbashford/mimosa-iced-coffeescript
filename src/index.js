@@ -1,8 +1,8 @@
 "use strict";
 
-var path = require( 'path' )
-  , _ = require( 'lodash' )
-  , config = require( './config' )
+var path = require( "path" )
+  , _ = require( "lodash" )
+  , config = require( "./config" )
   , getExtensions = function ( mimosaConfig ) {
     return mimosaConfig.iced.extensions;
   };
@@ -43,13 +43,14 @@ var compile = function ( mimosaConfig, file, cb ) {
     var line = "unknown";
     var column = "unknown";
     if ( err.location ) {
+      /* eslint camelcase:0 */
       line = err.location.first_line;
       column = err.location.first_column;
     }
     error = err + " line " + line + ", column " + column;
   }
 
-  cb ( error, output, icedConfig, sourceMap );
+  cb( error, output, icedConfig, sourceMap );
 };
 
 module.exports = {
