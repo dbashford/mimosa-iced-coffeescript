@@ -13,7 +13,7 @@ var compile = function ( mimosaConfig, file, cb ) {
     , sourceMap
     , icedConfig = mimosaConfig.iced
     , compiler = icedConfig.lib
-    , options = _.extend( {}, mimosaConfig.iced.options, { sourceFiles:[ path.basename( file.inputFileName ) + ".src" ] } );
+    , options = _.extend( {}, mimosaConfig.iced.options, { sourceFiles: [ path.basename( file.inputFileName ) + ".src" ] } );
 
   // set if literate
   if ( compiler.helpers && compiler.helpers.isLiterate ) {
